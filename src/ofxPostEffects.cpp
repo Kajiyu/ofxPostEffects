@@ -1,11 +1,3 @@
-//
-//  2045_ShaderManager.cpp
-//  2045VJ
-//
-//  Created by KajiharaYuma on 2016/08/17.
-//
-//
-
 #include "ofxPostEffects.h"
 
 void ofxPostEffects::addShader(ofShader &shader){
