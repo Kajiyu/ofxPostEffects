@@ -17,7 +17,7 @@ public:
 
 protected:
   vector<ofShader> shaders;
-  int _index = 0;
+  int index = 0;
   bool isShaderBegan = false;
   bool isFboSet = false;
   ofFbo mFbo;

@@ -27,15 +27,15 @@ void ofxPostEffects::addShader(string vert, string frag){
 
 
 void ofxPostEffects::changeShader(int _num){
-    _index = _num;
+    index = _num;
 }
 
 
 void ofxPostEffects::changeNextShader(){
-    if(_index == shaders.size()-1){
-        _index = 0;
+    if(index == shaders.size()-1){
+        index = 0;
     } else {
-        _index++;
+        index++;
     }
 }
 
@@ -48,13 +48,13 @@ void ofxPostEffects::setFbo(ofFbo &_fbo){
 
 void ofxPostEffects::begin(){
     if(shaders.size() > 0){
-        shaders[_index].begin();
-        shaders[_index].setUniformTexture("texture", mFbo, 0);
-        shaders[_index].setUniform2f("resolution", mFbo.getWidth(), mFbo.getHeight());
-        shaders[_index].setUniform1f("time", ofGetElapsedTimef());
-        shaders[_index].setUniform1f("rand", ofRandom(0.5));
-        shaders[_index].setUniform1f("screenWidth", ofGetWidth());
-        shaders[_index].setUniform1f("screenHeight", ofGetHeight());
+        shaders[index].begin();
+        shaders[index].setUniformTexture("texture", mFbo, 0);
+        shaders[index].setUniform2f("resolution", mFbo.getWidth(), mFbo.getHeight());
+        shaders[index].setUniform1f("time", ofGetElapsedTimef());
+        shaders[index].setUniform1f("rand", ofRandom(0.5));
+        shaders[index].setUniform1f("screenWidth", ofGetWidth());
+        shaders[index].setUniform1f("screenHeight", ofGetHeight());
         isShaderBegan = true;
     } else {
         cout << "[warning] There is no shader in  Manager." << endl;
@@ -66,7 +66,7 @@ void ofxPostEffects::begin(){
 void ofxPostEffects::customSetUniform1f(string uniname, float value){
     if(shaders.size() > 0){
         if(isShaderBegan) {
-            shaders[_index].setUniform1f(uniname , value);
+            shaders[index].setUniform1f(uniname , value);
         } else {
             cout << "[warning-customSetUniform1f] Shader not begun." << endl;
         }
@@ -78,7 +78,7 @@ void ofxPostEffects::customSetUniform1f(string uniname, float value){
 void ofxPostEffects::customSetUniform2f(string uniname, float value1, float value2){
     if(shaders.size() > 0){
         if(isShaderBegan) {
-            shaders[_index].setUniform2f(uniname , value1, value2);
+            shaders[index].setUniform2f(uniname , value1, value2);
         } else {
             cout << "[warning-customSetUniform2f] Shader not begun." << endl;
         }
@@ -90,7 +90,7 @@ void ofxPostEffects::customSetUniform2f(string uniname, float value1, float valu
 void ofxPostEffects::end(){
     if(shaders.size() > 0){
         if(isShaderBegan){
-            shaders[_index].end();
+            shaders[index].end();
             isShaderBegan = false;
         } else {
             cout << "Shader not begun." << endl;
