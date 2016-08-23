@@ -8,26 +8,26 @@
 
 #include "ofxPostEffects.h"
 
-void ofxPostEffects::addShader(ofShader &_shader){
-    shaders.push_back(_shader);
+void ofxPostEffects::addShader(ofShader &shader){
+    shaders.push_back(shader);
 }
 
 void ofxPostEffects::addShader(string filename){
-    ofShader _tmp;
-    _tmp.load(filename);
-    shaders.push_back(_tmp);
+    ofShader tmp;
+    tmp.load(filename);
+    shaders.push_back(tmp);
 }
 
 
 void ofxPostEffects::addShader(string vert, string frag){
-    ofShader _tmp;
-    _tmp.load(vert, frag);
-    shaders.push_back(_tmp);
+    ofShader tmp;
+    tmp.load(vert, frag);
+    shaders.push_back(tmp);
 }
 
 
-void ofxPostEffects::changeShader(int _num){
-    index = _num;
+void ofxPostEffects::changeShader(int num){
+    index = num;
 }
 
 
@@ -40,8 +40,8 @@ void ofxPostEffects::changeNextShader(){
 }
 
 
-void ofxPostEffects::setFbo(ofFbo &_fbo){
-    mFbo = _fbo;
+void ofxPostEffects::setFbo(ofFbo &fbo){
+    mFbo = fbo;
     isFboSet = true;
 }
 

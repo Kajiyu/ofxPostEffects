@@ -4,11 +4,11 @@
 
 class ofxPostEffects {
 public:
-  void setFbo(ofFbo &_fbo);
-  void addShader(ofShader &_shader);
+  void setFbo(ofFbo &fbo);
+  void addShader(ofShader &shader);
   void addShader(string filename);
   void addShader(string vert, string frag);
-  void changeShader(int _num);
+  void changeShader(int num);
   void changeNextShader();
   void begin();
   void customSetUniform1f(string uniname, float value);
